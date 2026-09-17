@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your Sarkari Hub account.">
+  <title>Sign Up | Sarkari Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .signup-page{min-height:100vh;display:grid;place-items:center;padding:32px 18px;background:linear-gradient(135deg,#f7fafc,#eef4ff)}
+    .signup-shell{width:min(100%,460px)}
+    .signup-back{display:inline-flex;align-items:center;gap:7px;margin-bottom:16px;color:#526071;text-decoration:none;font-weight:700}
+    .signup-card{background:#fff;border:1px solid #e4e9f0;border-radius:24px;padding:34px;box-shadow:0 20px 60px rgba(20,35,60,.10)}
+    .signup-logo{font-size:42px;margin-bottom:8px}.signup-card h1{margin:0 0 8px;font-size:32px}.signup-card>p{margin:0 0 24px;color:#667085;line-height:1.6}
+    .signup-form{display:grid;gap:15px}.signup-form label{font-size:14px;font-weight:800;color:#344054}.signup-form input{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid #d8dee8;border-radius:12px;font:inherit;outline:none}.signup-form input:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.10)}
+    .signup-check{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:#667085;line-height:1.5}.signup-check input{width:auto;margin-top:3px}.signup-btn{border:0;border-radius:12px;padding:14px;background:#111827;color:#fff;font:inherit;font-weight:800;cursor:pointer}.signup-btn:hover{opacity:.92}
+    .signup-message{display:none;padding:12px 14px;border-radius:12px;background:#ecfdf3;color:#067647;font-size:14px;font-weight:700}.signup-message.show{display:block}.signup-note{margin-top:18px;font-size:12px;color:#7a8492;line-height:1.55;text-align:center}
+    body.dark .signup-page{background:#0b1220}.dark .signup-card{background:#111827;border-color:#263244}.dark .signup-card h1,.dark .signup-form label{color:#f3f4f6}.dark .signup-card>p,.dark .signup-back,.dark .signup-check,.dark .signup-note{color:#aab4c3}.dark .signup-form input{background:#0f172a;color:#fff;border-color:#334155}
+    @media(max-width:520px){.signup-card{padding:25px 20px;border-radius:20px}.signup-card h1{font-size:28px}}
+  </style>
+</head>
+<body>
+  <main class="signup-page">
+    <div class="signup-shell">
+      <a class="signup-back" href="index.html">← Back to Sarkari Hub</a>
+      <section class="signup-card">
+        <div class="signup-logo">🇮🇳</div>
+        <h1>Create your account</h1>
+        <p>Sign up to personalize your Sarkari Hub experience.</p>
+        <div id="signupMessage" class="signup-message">Account details saved successfully. Welcome to Sarkari Hub! 🎉</div>
+        <form id="signupForm" class="signup-form" novalidate>
+          <div><label for="name">Full name</label><input id="name" name="name" type="text" placeholder="Enter your name" autocomplete="name" required></div>
+          <div><label for="email">Email address</label><input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required></div>
+          <div><label for="password">Password</label><input id="password" name="password" type="password" placeholder="Create a password" minlength="8" autocomplete="new-password" required></div>
+          <div><label for="confirmPassword">Confirm password</label><input id="confirmPassword" name="confirmPassword" type="password" placeholder="Repeat your password" minlength="8" autocomplete="new-password" required></div>
+          <label class="signup-check"><input id="terms" type="checkbox" required><span>I agree to use Sarkari Hub responsibly and verify official government domains before sharing sensitive information.</span></label>
+          <button class="signup-btn" type="submit">Create Account →</button>
+        </form>
+        <div class="signup-note">Demo account mode: this static GitHub Pages site does not have a secure server-side authentication system yet. Your password is not stored.</div>
+      </section>
+    </div>
+  </main>
+  <script>
+    const form=document.getElementById('signupForm');
+    const message=document.getElementById('signupMessage');
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      const name=document.getElementById('name').value.trim();
+      const email=document.getElementById('email').value.trim();
+      const password=document.getElementById('password').value;
+      const confirm=document.getElementById('confirmPassword').value;
+      if(!form.checkValidity()){form.reportValidity();return;}
+      if(password!==confirm){alert('Passwords do not match.');return;}
+      localStorage.setItem('sarkari-user',JSON.stringify({name,email}));
+      message.classList.add('show');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
