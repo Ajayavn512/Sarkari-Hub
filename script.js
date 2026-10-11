@@ -45,7 +45,7 @@ const jobsList=[
 {name:"National Career Service",cat:"Career Resources",icon:"💼",desc:"Employment services and career resources.",url:"https://www.ncs.gov.in/"}
 ];
 const resultsList=[
-{name:"UP Board",cat:"School Results",icon:"📚",desc:"Official UP Board website for result announcements and notices.",url:"https://upmsp.edu.in/"},
+{name:"UP Board",cat:"School Results",icon:"📚",desc:"Official UP Board website for result announcements and notices.",url:"https://results.upmsp.edu.in/"},
 {name:"CBSE Results",cat:"School Results",icon:"🎓",desc:"Official CBSE results portal; availability depends on exam schedule.",url:"https://results.cbse.nic.in/"},
 {name:"NTA Exams",cat:"Entrance Exam Results",icon:"🧪",desc:"Official National Testing Agency site for exam notices and result links.",url:"https://nta.ac.in/"},
 {name:"UPSC Results",cat:"Recruitment Results",icon:"🏅",desc:"Official UPSC results and examination notices.",url:"https://upsc.gov.in/"},
