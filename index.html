@@ -11,7 +11,7 @@
   <header class="topbar">
     <a class="brand" href="#home"><span>🇮🇳</span><div><strong>Sarkari Hub</strong><small>Official Services Directory</small></div></a>
     <nav>
-      <a href="#services">Services</a><a href="#jobs">Jobs</a><a href="#results">Results</a><a href="#admit-cards">Admit Cards</a><a href="#categories">Categories</a><a href="#projects">Projects</a><a href="#states">States</a><a href="#help">Help</a><button id="languageBtn" class="nav-pill" type="button" aria-label="Switch language">हिंदी</button>
+      <a href="#services" data-lang-en="Services" data-lang-hi="सेवाएँ">Services</a><a href="#jobs" data-lang-en="Jobs" data-lang-hi="नौकरी">Jobs</a><a href="#results" data-lang-en="Results" data-lang-hi="रिज़ल्ट">Results</a><a href="#admit-cards" data-lang-en="Admit Cards" data-lang-hi="एडमिट कार्ड">Admit Cards</a><a href="#categories" data-lang-en="Categories" data-lang-hi="श्रेणियाँ">Categories</a><a href="#projects" data-lang-en="Projects" data-lang-hi="प्रोजेक्ट">Projects</a><a href="#states" data-lang-en="States" data-lang-hi="राज्य">States</a><a href="#help" data-lang-en="Help" data-lang-hi="मदद">Help</a><button id="languageBtn" class="nav-pill" type="button" aria-label="Switch language">हिंदी</button>
       <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">🌙</button>
     </nav>
   </header>
@@ -19,9 +19,9 @@
   <main id="home">
     <section class="hero">
       <div class="hero-content">
-        <span class="badge">🇮🇳 भारत सरकार • Citizen Service Finder</span>
-        <h1>Government work,<br><span>made simple.</span></h1>
-        <p>Find official government portals for documents, tax, jobs, education, schemes, transport and more — all in one place.</p>
+        <span class="badge" data-lang-en="🇮🇳 A simpler way to find official links" data-lang-hi="🇮🇳 आधिकारिक लिंक खोजने का आसान तरीका">🇮🇳 भारत सरकार • Citizen Service Finder</span>
+        <h1 data-lang-en="Government work, made simple." data-lang-hi="सरकारी काम, अब आसान।">Government work,<br><span>made simple.</span></h1>
+        <p data-lang-en="Find official government portals for documents, tax, jobs, education, schemes, transport and more — all in one place." data-lang-hi="दस्तावेज़, टैक्स, नौकरी, शिक्षा, योजनाओं और परिवहन के आधिकारिक पोर्टल एक जगह खोजें।">Find official government portals for documents, tax, jobs, education, schemes, transport and more — all in one place.</p>
         <div class="search-wrap"><span>🔎</span><input id="searchInput" type="search" placeholder="Search Aadhaar, PAN, Passport, jobs, schemes..." autocomplete="off"><button id="clearSearch">✕</button></div>
         <div class="quick"><button data-search="Aadhaar">Aadhaar</button><button data-search="PAN">PAN Card</button><button data-search="Passport">Passport</button><button data-search="Jobs">Jobs</button><button data-search="Voter">Voter ID</button></div>
       </div>
@@ -34,14 +34,14 @@
       </div>
     </section>
 
-    <section class="notice"><span>🛡️</span><div><strong>Safety first</strong><p>Use official government websites and check the domain before entering personal or payment information. Sarkari Hub does not collect your documents.</p></div></section>
+    <section class="notice"><span>🛡️</span><div><strong>Safety first</strong><p data-lang-en="Use official government websites and check the domain before entering personal or payment information. Sarkari Hub does not collect your documents." data-lang-hi="व्यक्तिगत या भुगतान जानकारी देने से पहले आधिकारिक डोमेन जाँचें। Sarkari Hub आपके दस्तावेज़ एकत्र नहीं करता।">Use official government websites and check the domain before entering personal or payment information. Sarkari Hub does not collect your documents.</p></div></section>
 
-    <section id="services" class="section"><div class="section-head"><div><span class="eyebrow">DIRECTORY</span><h2>Popular Government Services</h2></div><span id="resultText"></span></div><div id="serviceGrid" class="service-grid"></div><div id="emptyState" class="empty hidden"><div>🔎</div><h3>No service found</h3><p>Try another keyword or browse a category.</p></div></section>
+    <section id="services" class="section"><div class="section-head"><div><span class="eyebrow">DIRECTORY</span><h2 data-lang-en="Popular Government Services" data-lang-hi="लोकप्रिय सरकारी सेवाएँ">Popular Government Services</h2></div><span id="resultText"></span></div><div id="serviceGrid" class="service-grid"></div><div id="emptyState" class="empty hidden"><div>🔎</div><h3>No service found</h3><p>Try another keyword or browse a category.</p></div></section>
 
     <section id="jobs" class="section alt"><div class="section-head"><div><span class="eyebrow">CAREER DESK</span><h2 data-lang-en="Government Jobs & Recruitment" data-lang-hi="सरकारी नौकरी और भर्ती">Government Jobs & Recruitment</h2><p data-lang-en="Official recruiting bodies — check current notices, eligibility and deadlines on their websites." data-lang-hi="भर्ती, पात्रता और अंतिम तारीख के लिए आधिकारिक विभागीय वेबसाइट देखें।">Official recruiting bodies — check current notices, eligibility and deadlines on their websites.</p></div><span class="section-symbol">💼</span></div><div id="jobsGrid" class="service-grid"></div></section>
     <section id="results" class="section"><div class="section-head"><div><span class="eyebrow">EXAM UPDATES</span><h2 data-lang-en="Results & Scorecards" data-lang-hi="रिज़ल्ट और स्कोरकार्ड">Results & Scorecards</h2><p data-lang-en="Official result portals; availability depends on the exam authority." data-lang-hi="आधिकारिक रिज़ल्ट पोर्टल देखें; उपलब्धता परीक्षा प्राधिकरण पर निर्भर है।">Official result portals; availability depends on the exam authority.</p></div><span class="section-symbol">📊</span></div><div id="resultsGrid" class="service-grid"></div></section>
     <section id="admit-cards" class="section alt"><div class="section-head"><div><span class="eyebrow">BE EXAM-READY</span><h2 data-lang-en="Admit Cards & Exam Notices" data-lang-hi="एडमिट कार्ड और परीक्षा नोटिस">Admit Cards & Exam Notices</h2><p data-lang-en="Check official portals for admit-card releases and exam schedules." data-lang-hi="एडमिट कार्ड और परीक्षा शेड्यूल के लिए आधिकारिक पोर्टल देखें।">Check official portals for admit-card releases and exam schedules.</p></div><span class="section-symbol">🎫</span></div><div id="admitGrid" class="service-grid"></div></section>
-    <section id="categories" class="section alt"><span class="eyebrow">EXPLORE</span><h2>Browse by Category</h2><div id="categoryGrid" class="category-grid"></div></section>
+    <section id="categories" class="section alt"><span class="eyebrow">EXPLORE</span><h2 data-lang-en="Browse by Category" data-lang-hi="श्रेणी के अनुसार खोजें">Browse by Category</h2><div id="categoryGrid" class="category-grid"></div></section>
 
     <section id="projects" class="section projects-section">
       <div class="section-head project-heading"><div><span class="eyebrow">AJAY'S DIGITAL ECOSYSTEM</span><h2>Explore the Hubs</h2><p>Three focused projects for government services, careers and AI productivity.</p></div></div>
@@ -52,9 +52,9 @@
       </div>
     </section>
 
-    <section id="states" class="section"><div class="section-head"><div><span class="eyebrow">STATE PORTALS</span><h2>Choose Your State</h2></div><select id="stateSelect"><option value="">Select state</option><option>Uttar Pradesh</option><option>Delhi</option><option>Maharashtra</option><option>Bihar</option><option>Rajasthan</option><option>Madhya Pradesh</option><option>West Bengal</option><option>Gujarat</option></select></div><div id="stateCard" class="state-card"><div class="state-icon">🗺️</div><div><h3>Uttar Pradesh</h3><p>e-District, government services and state information.</p><a href="https://up.gov.in/" target="_blank" rel="noopener">Open official UP portal ↗</a></div></div></section>
+    <section id="states" class="section"><div class="section-head"><div><span class="eyebrow">STATE PORTALS</span><h2 data-lang-en="Choose Your State" data-lang-hi="अपना राज्य चुनें">Choose Your State</h2></div><select id="stateSelect"><option value="">Select state</option><option>Uttar Pradesh</option><option>Delhi</option><option>Maharashtra</option><option>Bihar</option><option>Rajasthan</option><option>Madhya Pradesh</option><option>West Bengal</option><option>Gujarat</option></select></div><div id="stateCard" class="state-card"><div class="state-icon">🗺️</div><div><h3>Uttar Pradesh</h3><p>e-District, government services and state information.</p><a href="https://up.gov.in/" target="_blank" rel="noopener">Open official UP portal ↗</a></div></div></section>
 
-    <section id="help" class="section help"><div><span class="eyebrow">NEED HELP?</span><h2>Not sure where to start?</h2><p>Search what you want to do — for example, “income certificate” or “check PF balance”.</p></div><button id="guideBtn" class="primary">🧭 Find a Service</button></section>
+    <section id="help" class="section help"><div><span class="eyebrow">NEED HELP?</span><h2 data-lang-en="Not sure where to start?" data-lang-hi="शुरुआत कहाँ से करें?">Not sure where to start?</h2><p data-lang-en="Search what you want to do — for example, “income certificate” or “check PF balance”." data-lang-hi="जो सेवा चाहिए, उसे खोजें — जैसे आय प्रमाणपत्र या PF बैलेंस।">Search what you want to do — for example, “income certificate” or “check PF balance”.</p></div><button id="guideBtn" class="primary">🧭 Find a Service</button></section>
   </main>
 
   <footer><div class="footer-brand">🇮🇳 <strong>Sarkari Hub</strong></div><p>A citizen-friendly directory of links to official government portals.</p><div class="footer-links"><a href="#home">Home</a><a href="#services">Services</a><a href="#jobs">Jobs</a><a href="#results">Results</a><a href="#admit-cards">Admit Cards</a><a href="#projects">Projects</a><a href="#categories">Categories</a><a href="#help">Help</a></div><small>Always verify the official website domain before sharing sensitive information.</small></footer>
