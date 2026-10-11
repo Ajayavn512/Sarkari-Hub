@@ -72,3 +72,15 @@ footer{padding:48px 20px 35px}footer a{padding:6px}footer a:focus-visible{outlin
  .footer-links{flex-wrap:wrap;gap:8px 14px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+/* Sarkari Hub: recruitment sections, language control and responsive refinements */
+.nav-pill{border:1px solid #d8e2f3;background:#edf4ff;color:#1746a2;padding:9px 12px;border-radius:10px;font-weight:800;cursor:pointer}
+.section-symbol{font-size:28px;background:#e4edff;border-radius:14px;padding:10px}.card-meta{font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#5471a4;margin:0 0 5px}
+.service-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,235px),1fr))}
+.service-card{min-width:0}.service-card .open{margin-top:auto;min-height:42px;align-items:center}
+#jobs,#results,#admit-cards,#services,#categories,#states,#projects,#help{scroll-margin-top:100px}
+#searchForm .search-submit{background:#155eef;color:white;border:0;border-radius:9px;padding:10px 13px;font-size:13px;font-weight:800;cursor:pointer}
+#searchForm .search-submit:hover{background:#0f4fd3}
+body.dark .soft-section{background:#0e1728}body.dark .nav-pill{background:#182844;color:#cfe0ff;border-color:#2b4165}body.dark .section-symbol{background:#182844}body.dark .card-meta{color:#9cbcff}
+@media(max-width:900px){.topbar nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:7px}.topbar nav a{display:inline-flex;white-space:nowrap}.topbar nav .nav-pill{flex:0 0 auto}.hero{align-items:stretch}.hero-card{width:100%;max-width:none}}
+@media(max-width:520px){.service-grid,.category-grid,.project-grid{grid-template-columns:1fr}.section-symbol{font-size:23px}.topbar nav{gap:13px}.topbar nav a{font-size:12px}}
