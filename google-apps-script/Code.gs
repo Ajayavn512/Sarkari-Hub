@@ -11,8 +11,8 @@
  * Privacy: This endpoint saves name/email only. Never send or store passwords.
  * Keep the spreadsheet itself restricted; do not publish it to the web.
  */
-const SPREADSHEET_ID = 'PASTE_YOUR_GOOGLE_SHEET_ID_HERE';
-const SHEET_NAME = 'Signups';
+const SPREADSHEET_ID = '10vYWZ4Qm08EsSfRXb7Lh7VAFOMV5_yhp60qKiNhyIG4';
+const SHEET_NAME = 'Registrations';
 
 function doGet() {
   return jsonResponse({ ok: true, service: 'Sarkari Hub signup endpoint' });
