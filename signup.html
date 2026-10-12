@@ -25,16 +25,14 @@
       <a class="signup-back" href="index.html">← Back to Sarkari Hub</a>
       <section class="signup-card">
         <div class="signup-logo">🇮🇳</div>
-        <h1>Create your account</h1>
-        <p>Sign up to personalize your Sarkari Hub experience.</p>
+        <h1>Register with Sarkari Hub</h1>
+        <p>Register your name and email to stay connected with Sarkari Hub.</p>
         <div id="signupMessage" class="signup-message"></div>
         <form id="signupForm" class="signup-form" novalidate>
           <div><label for="name">Full name</label><input id="name" name="name" type="text" placeholder="Enter your name" autocomplete="name" required></div>
           <div><label for="email">Email address</label><input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required></div>
-          <div><label for="password">Password</label><input id="password" name="password" type="password" placeholder="Create a password" minlength="8" autocomplete="new-password" required></div>
-          <div><label for="confirmPassword">Confirm password</label><input id="confirmPassword" name="confirmPassword" type="password" placeholder="Repeat your password" minlength="8" autocomplete="new-password" required></div>
           <label class="signup-check"><input id="terms" type="checkbox" required><span>I agree to use Sarkari Hub responsibly and verify official government domains before sharing sensitive information.</span></label>
-          <button id="signupBtn" class="signup-btn" type="submit">Create Account →</button>
+          <button id="signupBtn" class="signup-btn" type="submit">Submit Registration →</button>
         </form>
         <div class="signup-note">Your name and email are sent to the Google Sheet only after you submit this form. Never collect or store passwords in a Google Sheet.</div>
       </section>
@@ -57,28 +55,22 @@
       if(!form.checkValidity()){form.reportValidity();return;}
       const name=document.getElementById('name').value.trim();
       const email=document.getElementById('email').value.trim();
-      const password=document.getElementById('password').value;
-      const confirm=document.getElementById('confirmPassword').value;
-      if(password!==confirm){showMessage('Passwords do not match.',true);return;}
       if(GOOGLE_SHEET_WEB_APP_URL.includes('PASTE_YOUR')){
         showMessage('Google Sheet connection is not configured yet. Add your Apps Script Web App URL in signup.html.',true);
         return;
       }
       button.disabled=true;
-      button.textContent='Creating account...';
+      button.textContent='Submitting...';
       try{
         const body=new URLSearchParams({name,email,source:'Sarkari Hub Sign Up'});
-        const response=await fetch(GOOGLE_SHEET_WEB_APP_URL,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body});
-        const result=await response.json().catch(()=>({ok:true}));
-        if(!response.ok || result.ok===false) throw new Error(result.message || 'Unable to save your details.');
-        localStorage.setItem('sarkari-user',JSON.stringify({name,email}));
-        showMessage('Account details saved successfully. Welcome to Sarkari Hub! 🎉');
+        await fetch(GOOGLE_SHEET_WEB_APP_URL,{method:'POST',mode:'no-cors',body});
+        showMessage('Your registration was submitted. Thank you for joining Sarkari Hub! 🎉');
         form.reset();
       }catch(error){
         showMessage('Could not save your details right now. Please try again.',true);
       }finally{
         button.disabled=false;
-        button.textContent='Create Account →';
+        button.textContent='Submit Registration →';
       }
     });
   </script>
