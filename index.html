@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sarkari Hub - Find official Indian government services, portals and citizen services in one place.">
+  <meta name="description" content="Sarkari Hub helps you find official Indian government services, recruitment portals, exam results, admit cards and student resources in one place."><meta name="theme-color" content="#155eef"><link rel="manifest" href="manifest.json"><meta property="og:title" content="Sarkari Hub | Official Government Links"><meta property="og:description" content="Find official government services, jobs, results and admit cards."><meta property="og:type" content="website">
   <title>Sarkari Hub | Government Services</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -11,7 +11,7 @@
   <header class="topbar">
     <a class="brand" href="#home"><span>🇮🇳</span><div><strong>Sarkari Hub</strong><small>Official Services Directory</small></div></a>
     <nav>
-      <a href="#services" data-lang-en="Services" data-lang-hi="सेवाएँ">Services</a><a href="#jobs" data-lang-en="Jobs" data-lang-hi="नौकरी">Jobs</a><a href="#results" data-lang-en="Results" data-lang-hi="रिज़ल्ट">Results</a><a href="#admit-cards" data-lang-en="Admit Cards" data-lang-hi="एडमिट कार्ड">Admit Cards</a><a href="#categories" data-lang-en="Categories" data-lang-hi="श्रेणियाँ">Categories</a><a href="#projects" data-lang-en="Projects" data-lang-hi="प्रोजेक्ट">Projects</a><a href="#states" data-lang-en="States" data-lang-hi="राज्य">States</a><a href="#help" data-lang-en="Help" data-lang-hi="मदद">Help</a><a href="signup.html">Signup</a><button id="languageBtn" class="nav-pill" type="button" aria-label="Switch language">हिंदी</button>
+      <a href="#services" data-lang-en="Services" data-lang-hi="सेवाएँ">Services</a><a href="#jobs" data-lang-en="Jobs" data-lang-hi="नौकरी">Jobs</a><a href="#results" data-lang-en="Results" data-lang-hi="रिज़ल्ट">Results</a><a href="#admit-cards" data-lang-en="Admit Cards" data-lang-hi="एडमिट कार्ड">Admit Cards</a><a href="#categories" data-lang-en="Categories" data-lang-hi="श्रेणियाँ">Categories</a><a href="#projects" data-lang-en="Projects" data-lang-hi="प्रोजेक्ट">Projects</a><a href="#states" data-lang-en="States" data-lang-hi="राज्य">States</a><a href="#help" data-lang-en="Help" data-lang-hi="मदद">Help</a><a href="#saved">Saved Links</a><a href="signup.html">Signup</a><button id="installBtn" class="nav-pill" type="button" hidden>Install App</button><button id="notifyBtn" class="nav-pill" type="button">🔔 Updates</button><button id="languageBtn" class="nav-pill" type="button" aria-label="Switch language">हिंदी</button>
       <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">🌙</button>
     </nav>
   </header>
@@ -54,10 +54,13 @@
 
     <section id="states" class="section"><div class="section-head"><div><span class="eyebrow">STATE PORTALS</span><h2 data-lang-en="Choose Your State" data-lang-hi="अपना राज्य चुनें">Choose Your State</h2></div><select id="stateSelect"><option value="">Select state</option><option>Uttar Pradesh</option><option>Delhi</option><option>Maharashtra</option><option>Bihar</option><option>Rajasthan</option><option>Madhya Pradesh</option><option>West Bengal</option><option>Gujarat</option></select></div><div id="stateCard" class="state-card"><div class="state-icon">🗺️</div><div><h3>Uttar Pradesh</h3><p>e-District, government services and state information.</p><a href="https://up.gov.in/" target="_blank" rel="noopener">Open official UP portal ↗</a></div></div></section>
 
+    <section id="saved" class="section alt"><div class="section-head"><div><span class="eyebrow">YOUR SHORTLIST</span><h2>Saved Government Links</h2><p>Save useful portals and recruitment pages on this device for quick access.</p></div><span id="savedCount" class="section-symbol">🔖</span></div><div id="savedGrid" class="service-grid"></div><p id="savedEmpty" class="saved-empty">No saved links yet. Tap “Save” on any service, job or exam card to keep it here.</p></section>
+
     <section id="help" class="section help"><div><span class="eyebrow">NEED HELP?</span><h2 data-lang-en="Not sure where to start?" data-lang-hi="शुरुआत कहाँ से करें?">Not sure where to start?</h2><p data-lang-en="Search what you want to do — for example, “income certificate” or “check PF balance”." data-lang-hi="जो सेवा चाहिए, उसे खोजें — जैसे आय प्रमाणपत्र या PF बैलेंस।">Search what you want to do — for example, “income certificate” or “check PF balance”.</p></div><button id="guideBtn" class="primary">🧭 Find a Service</button></section>
   </main>
 
   <footer><div class="footer-brand">🇮🇳 <strong>Sarkari Hub</strong></div><p>A citizen-friendly directory of links to official government portals.</p><div class="footer-links"><a href="#home">Home</a><a href="#services">Services</a><a href="#jobs">Jobs</a><a href="#results">Results</a><a href="#admit-cards">Admit Cards</a><a href="#projects">Projects</a><a href="#categories">Categories</a><a href="#help">Help</a></div><small>Always verify the official website domain before sharing sensitive information.</small></footer>
   <script src="script.js"></script>
+  <script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
 </body>
 </html>
