@@ -11,7 +11,7 @@
   <header class="topbar">
     <a class="brand" href="#home"><span>🇮🇳</span><div><strong>Sarkari Hub</strong><small>Official Services Directory</small></div></a>
     <nav>
-      <a href="#services" data-lang-en="Services" data-lang-hi="सेवाएँ">Services</a><a href="#jobs" data-lang-en="Jobs" data-lang-hi="नौकरी">Jobs</a><a href="#results" data-lang-en="Results" data-lang-hi="रिज़ल्ट">Results</a><a href="#admit-cards" data-lang-en="Admit Cards" data-lang-hi="एडमिट कार्ड">Admit Cards</a><a href="#categories" data-lang-en="Categories" data-lang-hi="श्रेणियाँ">Categories</a><a href="#projects" data-lang-en="Projects" data-lang-hi="प्रोजेक्ट">Projects</a><a href="#states" data-lang-en="States" data-lang-hi="राज्य">States</a><a href="#help" data-lang-en="Help" data-lang-hi="मदद">Help</a><a href="#saved">Saved Links</a><a href="signup.html">Signup</a><button id="installBtn" class="nav-pill" type="button" hidden>Install App</button><button id="notifyBtn" class="nav-pill" type="button">🔔 Updates</button><button id="languageBtn" class="nav-pill" type="button" aria-label="Switch language">हिंदी</button>
+      <a href="#services" data-lang-en="Services" data-lang-hi="सेवाएँ">Services</a><a href="#jobs" data-lang-en="Jobs" data-lang-hi="नौकरी">Jobs</a><a href="#results" data-lang-en="Results" data-lang-hi="रिज़ल्ट">Results</a><a href="#admit-cards" data-lang-en="Admit Cards" data-lang-hi="एडमिट कार्ड">Admit Cards</a><a href="#categories" data-lang-en="Categories" data-lang-hi="श्रेणियाँ">Categories</a><a href="#projects" data-lang-en="Projects" data-lang-hi="प्रोजेक्ट">Projects</a><a href="#states" data-lang-en="States" data-lang-hi="राज्य">States</a><a href="#help" data-lang-en="Help" data-lang-hi="मदद">Help</a><a href="#saved">Saved Links</a><a href="auth.html">Login</a><a href="signup.html">Signup</a><button id="installBtn" class="nav-pill" type="button" hidden>Install App</button><button id="notifyBtn" class="nav-pill" type="button">🔔 Updates</button><button id="languageBtn" class="nav-pill" type="button" aria-label="Switch language">हिंदी</button>
       <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">🌙</button>
     </nav>
   </header>
@@ -61,6 +61,7 @@
 
   <footer><div class="footer-brand">🇮🇳 <strong>Sarkari Hub</strong></div><p>A citizen-friendly directory of links to official government portals.</p><div class="footer-links"><a href="#home">Home</a><a href="#services">Services</a><a href="#jobs">Jobs</a><a href="#results">Results</a><a href="#admit-cards">Admit Cards</a><a href="#projects">Projects</a><a href="#categories">Categories</a><a href="#help">Help</a></div><small>Always verify the official website domain before sharing sensitive information.</small></footer>
   <script src="script.js"></script>
+  <script type="module" src="firebase-sync.js"></script>
   <script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
 </body>
 </html>
