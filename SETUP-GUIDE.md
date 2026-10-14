@@ -32,3 +32,11 @@ Saved links currently stay in the visitor's browser. They are not synced across 
 
 ## Accuracy and safety
 Links point to official portals, but this static site does not automatically verify active vacancies or fetch live results. Confirm dates, eligibility and application fees on the official notice. Never enter passwords, OTPs or payment details into unofficial pages.
+
+
+## Login and admin notes
+- Firebase setup is required before account creation, login, cross-device saved-link sync, or dashboard publishing can work.
+- Put only the Firebase web app configuration in firebase-config.js. Never place private service credentials in browser files.
+- To authorize your own dashboard account, create an admins document in Firestore using your authenticated user ID and set enabled to true. Do this manually in Firebase Console.
+- The Google Sheets form needs the deployed Apps Script /exec URL in signup.html before submissions can be saved.
+- The site links to official portals but does not automatically verify live vacancies or results. Confirm details on each official notice.
