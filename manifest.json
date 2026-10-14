@@ -1,0 +1,11 @@
+{
+  "name": "Sarkari Hub",
+  "short_name": "Sarkari Hub",
+  "description": "Official Indian government services, recruitment portals, results and admit cards.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f8fc",
+  "theme_color": "#155eef",
+  "icons": []
+}
