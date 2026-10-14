@@ -126,7 +126,7 @@ renderAllDirectories();
 /* Saved links are stored locally in this browser only. */
 const SAVED_KEY='sarkari-hub-saved-v1';
 function readSaved(){try{return JSON.parse(localStorage.getItem(SAVED_KEY)||'[]')}catch{return []}}
-function writeSaved(items){localStorage.setItem(SAVED_KEY,JSON.stringify(items));renderSaved();syncSaveButtons()}
+function writeSaved(items){localStorage.setItem(SAVED_KEY,JSON.stringify(items));renderSaved();syncSaveButtons();window.dispatchEvent(new CustomEvent('sarkari-saved-changed'))}
 function safeText(value){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
 function isSaved(url){return readSaved().some(item=>item.url===url)}
 function syncSaveButtons(){document.querySelectorAll('[data-save-url]').forEach(btn=>{const saved=isSaved(btn.dataset.saveUrl);btn.setAttribute('aria-pressed',String(saved));btn.textContent=saved?'✓ Saved':'＋ Save'})}
