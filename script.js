@@ -74,7 +74,9 @@ function renderAllDirectories(query=''){
  if(q){
   const serviceMatches=match(services);
   render(serviceMatches);
-  document.getElementById('resultText').textContent=(match(allDirectoryItems).length)+' matching links';
+  const totalMatches=match(allDirectoryItems).length;
+  empty.classList.toggle('hidden',totalMatches>0);
+  document.getElementById('resultText').textContent=totalMatches+' matching links';
  }else{
   render(services);
   document.getElementById('resultText').textContent=allDirectoryItems.length+' links across all sections';
