@@ -122,3 +122,47 @@ renderAllDirectories();
  },{threshold:0.12,rootMargin:'0px 0px -35px 0px'});
  revealTargets.forEach(el=>observer.observe(el));
 })();
+
+/* Saved links are stored locally in this browser only. */
+const SAVED_KEY='sarkari-hub-saved-v1';
+function readSaved(){try{return JSON.parse(localStorage.getItem(SAVED_KEY)||'[]')}catch{return []}}
+function writeSaved(items){localStorage.setItem(SAVED_KEY,JSON.stringify(items));renderSaved();syncSaveButtons()}
+function safeText(value){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
+function isSaved(url){return readSaved().some(item=>item.url===url)}
+function syncSaveButtons(){document.querySelectorAll('[data-save-url]').forEach(btn=>{const saved=isSaved(btn.dataset.saveUrl);btn.setAttribute('aria-pressed',String(saved));btn.textContent=saved?'✓ Saved':'＋ Save'})}
+function renderSaved(){
+ const wrap=document.getElementById('savedGrid'),emptyText=document.getElementById('savedEmpty'),count=document.getElementById('savedCount');if(!wrap)return;
+ const items=readSaved();count.textContent='🔖 '+items.length;emptyText.hidden=items.length>0;
+ wrap.innerHTML=items.map(item=>'<article class="service-card"><div class="service-icon">'+safeText(item.icon||'🔖')+'</div><span class="card-meta">Saved on this device</span><h3>'+safeText(item.name)+'</h3><p>'+safeText(item.desc||'Official portal link saved for quick access.')+'</p><a class="open" href="'+safeText(item.url)+'" target="_blank" rel="noopener noreferrer">Open official website ↗</a><button class="save-link remove-saved" type="button" data-remove-url="'+safeText(item.url)+'">Remove</button></article>').join('');
+}
+document.addEventListener('click',event=>{
+ const save=event.target.closest('[data-save-url]');
+ if(save){const item={name:save.dataset.saveName,cat:save.dataset.saveCat,icon:save.dataset.saveIcon,desc:save.dataset.saveDesc,url:save.dataset.saveUrl};const items=readSaved();const idx=items.findIndex(x=>x.url===item.url);if(idx>=0)items.splice(idx,1);else items.unshift(item);writeSaved(items);return}
+ const remove=event.target.closest('[data-remove-url]');if(remove){writeSaved(readSaved().filter(x=>x.url!==remove.dataset.removeUrl));}
+});
+function addSaveButtons(){
+ document.querySelectorAll('.service-card').forEach(card=>{
+  if(card.querySelector('[data-save-url]'))return;
+  const link=card.querySelector('a.open');if(!link)return;
+  const url=link.href,name=card.querySelector('h3')?.textContent?.trim()||'Official link',desc=card.querySelector('p')?.textContent?.trim()||'Official portal',icon=card.querySelector('.service-icon')?.textContent?.trim()||'🔖',cat=card.querySelector('.card-meta')?.textContent?.trim()||'Government services';
+  const button=document.createElement('button');button.type='button';button.className='save-link';button.dataset.saveUrl=url;button.dataset.saveName=name;button.dataset.saveDesc=desc;button.dataset.saveIcon=icon;button.dataset.saveCat=cat;button.textContent='＋ Save';link.insertAdjacentElement('afterend',button);
+ });
+ syncSaveButtons();
+}
+const savedObserver=new MutationObserver(()=>addSaveButtons());
+document.querySelectorAll('#serviceGrid,#jobsGrid,#resultsGrid,#admitGrid').forEach(el=>savedObserver.observe(el,{childList:true,subtree:true}));
+addSaveButtons();renderSaved();
+
+let installPrompt=null;const installBtn=document.getElementById('installBtn');
+window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event;if(installBtn)installBtn.hidden=false});
+installBtn?.addEventListener('click',async()=>{if(!installPrompt){alert('If supported, use your browser menu and choose Install app or Add to Home screen.');return}installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;installBtn.hidden=true});
+window.addEventListener('appinstalled',()=>{if(installBtn)installBtn.hidden=true});
+
+document.getElementById('notifyBtn')?.addEventListener('click',async()=>{
+ if(!('Notification' in window)){alert('This browser does not support notifications.');return}
+ if(Notification.permission==='granted'){new Notification('Sarkari Hub',{body:'Notifications are enabled on this device. Check official portals for verified updates.'});return}
+ if(Notification.permission==='denied'){alert('Notifications are blocked in browser settings. You can enable them in browser settings if you wish.');return}
+ const permission=await Notification.requestPermission();
+ if(permission==='granted')new Notification('Sarkari Hub',{body:'Notifications are enabled on this device. Check official portals for verified updates.'});
+ else alert('Notifications were not enabled.');
+});
