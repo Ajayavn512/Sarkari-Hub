@@ -104,3 +104,21 @@ if(languageButton){languageButton.addEventListener('click',()=>setLanguage(curre
 // Keep state choices and search interactions keyboard-friendly.
 document.querySelectorAll('.category').forEach(el=>{el.setAttribute('tabindex','0');el.setAttribute('role','button');el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}});});
 renderAllDirectories();
+
+
+// Scroll reveal: progressively animate content as it enters the viewport.
+(function(){
+ const reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const revealTargets=document.querySelectorAll('.section h2,.service-card,.project-card,.category,.state-card,.notice,.help');
+ if(reduceMotion||!('IntersectionObserver' in window)){return;}
+ revealTargets.forEach((el,index)=>{
+   el.classList.add('reveal-on-scroll');
+   if(el.matches('.service-card,.project-card,.category,.state-card')) el.style.transitionDelay=((index%5)*55)+'ms';
+ });
+ const observer=new IntersectionObserver(entries=>{
+   entries.forEach(entry=>{
+     if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}
+   });
+ },{threshold:0.12,rootMargin:'0px 0px -35px 0px'});
+ revealTargets.forEach(el=>observer.observe(el));
+})();
