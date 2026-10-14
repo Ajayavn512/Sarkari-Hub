@@ -1,11 +1,26 @@
 {
-  "name": "Sarkari Hub",
+  "name": "Sarkari Hub — Government Services",
   "short_name": "Sarkari Hub",
-  "description": "Official Indian government services, recruitment portals, results and admit cards.",
-  "start_url": "./index.html",
+  "description": "A citizen-friendly directory for official government services, jobs, results, admit cards and schemes in India.",
+  "id": "./",
+  "start_url": "./index.html?source=pwa",
   "scope": "./",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#f6f8fc",
-  "theme_color": "#155eef",
-  "icons": []
+  "theme_color": "#1746a2",
+  "lang": "en-IN",
+  "categories": [
+    "government",
+    "education",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "./assets/sarkari-hub-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }
